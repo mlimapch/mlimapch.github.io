@@ -16,12 +16,18 @@
         var MariasComponent = React.createClass({
             render: function() {
                 return (
-                        <h2>My name is Maria</h2>
+                        <h2>{this.props.user} is {this.props.food}</h2>
                 );
             }
         });
 
-        React.render(<MariasComponent />, document.getElementById('content'));
+        React.render(
+            <div>
+            <MariasComponent user="Maria" food="bacon" />
+            <MariasComponent user="Emily" food="ham" />
+            <MariasComponent user="Rose" food="beef" />
+            <MariasComponent user="Ricky" food="tuna" />
+            </div>, document.getElementById('content'));
 
     </script>
 
