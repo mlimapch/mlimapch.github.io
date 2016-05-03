@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>React Tutorial</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <div id="content"></div>
+
+    <script type="text/jsx">
+
+    //https://code.tutsplus.com/tutorials/create-a-react-class-in-60-seconds--cms-25240
+
+    var MyComponent = React.createClass({
+
+        get InitialState: function(){
+            return {
+                message: ''
+            };
+        },
+
+        componentDidMount: function(){
+            var totalMessage = 'Hello React!';
+
+            setInterval(function(){
+                var length = this.state.message.length + 1;
+                this.setState({
+                    message: totalMessage.slice(0, length)
+                });
+
+            }.bind(this), 100);
+        },
+
+        render: function(){
+            return <h1> { this.state.message} </h1>;
+        }
+
+    });
+
+    React.render(<MyComponent />, document.getElementById('app'));
+
+
+
+    </script>
+
+    <div id="app"></div>
+
+</body>
+</html>
